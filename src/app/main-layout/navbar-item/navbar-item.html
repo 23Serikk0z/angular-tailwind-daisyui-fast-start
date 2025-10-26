@@ -1,0 +1,20 @@
+<li>
+  @if (!item.children?.length) {
+    <a [routerLink]="item.path">
+      <i>{{ item.icon }}</i>
+      {{ item.label }}
+    </a>
+  } @else {
+    <details>
+      <summary>
+        <i>{{ item.icon }}</i>
+        {{ item.label }}
+      </summary>
+      <ul>
+        @for (child of item.children; track child) {
+          <app-navbar-item [item]="child"></app-navbar-item>
+        }
+      </ul>
+    </details>
+  }
+</li>
